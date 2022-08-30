@@ -1,0 +1,57 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/api-cloud-scheduler/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/api-cloud-scheduler",
+        "main": "apps/api-cloud-scheduler/src/main.ts",
+        "tsConfig": "apps/api-cloud-scheduler/tsconfig.app.json",
+        "assets": ["apps/api-cloud-scheduler/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/api-cloud-scheduler/src/environments/environment.ts",
+              "with": "apps/api-cloud-scheduler/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "api-cloud-scheduler:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "api-cloud-scheduler:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/api-cloud-scheduler/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/api-cloud-scheduler"],
+      "options": {
+        "jestConfig": "apps/api-cloud-scheduler/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
