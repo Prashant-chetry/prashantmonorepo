@@ -2,6 +2,11 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "api-cloud-scheduler": "apps/api-cloud-scheduler"
+    "api-cloud-scheduler": "apps/api-cloud-scheduler",
+    "api-db": "libs/api-db",
+    "api-helpers": "libs/api-helpers",
+    "cloud-scheduler-ui": "apps/cloud-scheduler-ui",
+    "cloud-scheduler-ui-e2e": "apps/cloud-scheduler-ui-e2e",
+    "interfaces": "libs/interfaces"
   }
 }

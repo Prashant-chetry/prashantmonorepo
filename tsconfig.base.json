@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@prashantmono/api-db": ["libs/api-db/src/index.ts"],
+      "@prashantmono/api-helpers": ["libs/api-helpers/src/index.ts"],
+      "@prashantmono/interfaces": ["libs/interfaces/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
